@@ -1,1 +1,3 @@
-# dashboard_app
+#Dashboard App
+
+Launch with yarn start
