@@ -1,13 +1,15 @@
 import {NavTab} from "../NavTab";
-import {useState} from "react";
 import './styles.css';
 import {HSpace} from "../HSpase";
+import {useDispatch, useSelector} from "react-redux";
+import {changeTable} from "../../models/tableSlice";
 
 export const Nav = () => {
-    const [table, setTable] = useState('Users');
+    const table = useSelector((state) => state.tables.name);
+    const dispatch = useDispatch();
 
     const handleClick = (value) => {
-        setTable(value);
+        dispatch(changeTable(value));
     };
 
     return (

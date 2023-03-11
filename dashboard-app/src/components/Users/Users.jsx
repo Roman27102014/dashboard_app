@@ -2,8 +2,12 @@ import {UsersRow} from "./UsersRow";
 import './styles.css';
 import {VSpace} from "../Vspace";
 import {Filters} from "../Filters/Filters";
+import React from "react";
+import {useSelector} from "react-redux";
 
-export const Users = ({ users }) => {
+export const Users = () => {
+    const users = useSelector((state) => state.users);
+
     return (
         <>
             <Filters />
@@ -17,11 +21,11 @@ export const Users = ({ users }) => {
             </div>
             <VSpace size='m' />
             <div>
-                {users.map((user) => (
-                    <>
-                        <UsersRow key={user.id} user={user} />
+                {users && users.map((user) => (
+                    <React.Fragment key={user.id}>
+                        <UsersRow user={user} />
                         <VSpace size='m' />
-                    </>
+                    </React.Fragment>
                 ))}
             </div>
         </>

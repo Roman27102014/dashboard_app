@@ -1,5 +1,4 @@
 import './App.css';
-import { users } from './constants/';
 import {Nav} from "./components/Nav";
 import {VSpace} from "./components/Vspace";
 import {Users} from "./components/Users/Users";
@@ -11,7 +10,7 @@ function App() {
             <VSpace size='m' />
             <Nav />
             <VSpace size='m' />
-            <Users users={users} />
+            <Users />
         </div>
     );
 }

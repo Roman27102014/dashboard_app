@@ -2,12 +2,17 @@ import {UsersCell} from "./UsersCell";
 import {useState} from "react";
 import './styles.css';
 import {HSpace} from "../HSpase";
+import {useDispatch} from "react-redux";
+import {deleteUser} from "../../models/usersSlice";
 
 export const UsersRow = ({ user }) => {
     const [isActive, setActive] = useState(false);
+    const dispatch = useDispatch();
 
     const handleToggleActive = () => -setActive(!isActive)
-    const handleDelete = () => -setActive(!isActive)
+    const handleDelete = () => {
+        dispatch(deleteUser(user.id))
+    }
 
     return (
         <div className="table-row">
