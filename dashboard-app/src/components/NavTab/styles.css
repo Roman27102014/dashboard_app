@@ -1,0 +1,11 @@
+.nav-tab {
+    width: 8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #C9CCD3;
+}
+
+.nav-tab-active {
+    border-bottom: #42A7D1 solid 2px;
+    color: #42A7D1;
+}

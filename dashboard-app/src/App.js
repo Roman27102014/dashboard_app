@@ -1,17 +1,17 @@
 import './App.css';
-import { users, games } from './constants/';
-import { UsersTable, Tab, GamesTable } from "./components";
+import { users } from './constants/';
+import {Nav} from "./components/Nav";
+import {VSpace} from "./components/Vspace";
+import {Users} from "./components/Users/Users";
 
 function App() {
     return (
         <div className="wrapper">
-            <h1>Games dashboard App</h1>
-            <div className="filters">
-                <Tab text="Games" onClick={() => {}} />
-                <Tab text="Users" onClick={() => {}} />
-            </div>
-            <UsersTable users={users} />
-            <GamesTable games={games} />
+            <h1 className="title">Games dashboard App</h1>
+            <VSpace size='m' />
+            <Nav />
+            <VSpace size='m' />
+            <Users users={users} />
         </div>
     );
 }

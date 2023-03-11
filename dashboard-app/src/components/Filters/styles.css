@@ -1,0 +1,77 @@
+.filters-container {
+    display: flex;
+    align-items: center;
+}
+
+.filter-title {
+    display: flex;
+    align-items: center;
+    color: #C9CCD3;
+    cursor: pointer;
+    transition: color 200ms ease;
+}
+
+.filter-isOpened {
+    color: #42A7D1;
+}
+
+.filter img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.filter {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    padding: 0 3rem;
+    width: 5rem;
+    color: #FFFFFF;
+    background-color: #42A7D1;
+    border-radius: 0.5rem;
+}
+
+.filter-submit {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    padding: 0 3rem;
+    width: 12rem;
+    color: #FFFFFF;
+    background-color: #42A7D1;
+    border-radius: 0.5rem;
+    transition: color 100ms ease;
+}
+
+.filter-submit:active {
+    color: #42A7D1;
+    background-color: #FFFFFF;
+}
+
+.filter-isActive {
+    color: #42A7D1;
+    background-color: #FFFFFF;
+}
+
+.user-filters-container {
+    position: relative;
+}
+
+.user-filters {
+    display: flex;
+}
+
+.user-input-container {
+    display: flex;
+}
+
+.user-input {
+    position: absolute;
+    top: 2.7rem;
+    left: 0;
+}
+
