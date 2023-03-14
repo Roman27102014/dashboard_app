@@ -11,13 +11,8 @@ export const usersSlice = createSlice({
              state.push(action.payload);
         },
         updateUser: (state, action) => {
-            const user = state.find((user) => user.id === action.payload);
-            if (user) {
-                return {
-                    ...state,
-                    user: action.payload,
-                }
-            }
+            const index = state.findIndex((user) => user.id === action.payload.id);
+            state.splice(index, 1, action.payload);
         },
         deleteUser: (state, action) => {
             return state.filter((user) => user.id !== action.payload);

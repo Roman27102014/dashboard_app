@@ -1,10 +1,10 @@
-import { useState } from "react";
+import {Children, useState} from "react";
 import './styles.css';
 import {HSpace} from "../HSpase";
-import {UserFilters} from "./UserFilters";
 
-export const Filters = () => {
+export const Filters = ({ children }) => {
     const [isOpened, setOpened] = useState(false);
+    const result = Children.toArray(children);
 
     const handleToggle = () => setOpened(!isOpened);
 
@@ -16,9 +16,7 @@ export const Filters = () => {
                 <span>Filters</span>
             </div>
             <HSpace size='xl' />
-            {isOpened &&
-                <UserFilters/>
-            }
+            {isOpened && result}
         </div>
     )
 }

@@ -3,34 +3,34 @@ import {useState} from "react";
 import '../../styles.css';
 import {HSpace} from "../HSpase";
 import {useDispatch} from "react-redux";
-import {deleteUser, updateUser} from "../../models/usersSlice";
-import {useUserInput} from "../../hooks";
+import {useGameInput} from "../../hooks";
+import {deleteGame, updateGame} from "../../models/gamesSlice";
 
-export const UsersRow = ({ user }) => {
-    const { name, email, address, setName, setEmail, setAddress } = useUserInput();
+export const GamesRow = ({ game }) => {
+    const { name, gameCategory, createdDate, setName, setCreatedDate, setGameCategory } = useGameInput();
     const [isActive, setActive] = useState(false);
     const dispatch = useDispatch();
     const handleToggleActive = () => {
         setActive(!isActive);
         if (isActive) {
-            dispatch(updateUser({
-                id: user.id,
+            dispatch(updateGame({
+                id: game.id,
                 name,
-                email,
-                address,
+                gameCategory,
+                createdDate,
             }));
         }
     };
     const handleDelete = () => {
-        dispatch(deleteUser(user.id))
+        dispatch(deleteGame(game.id))
     }
 
     return (
         <div className="table-row">
             <div className="table-row__cells">
-                <Cell isActive={isActive} text={user.name} value={name} onChange={setName} />
-                <Cell isActive={isActive} text={user.email} value={email} onChange={setEmail} />
-                <Cell isActive={isActive} text={user.address} value={address} onChange={setAddress} />
+                <Cell isActive={isActive} text={game.name} value={name} onChange={setName} />
+                <Cell isActive={isActive} text={game.gameCategory} value={gameCategory} onChange={setGameCategory} />
+                <Cell isActive={isActive} text={game.createdDate} value={createdDate} onChange={setCreatedDate} />
             </div>
             <div className="table-row__buttons">
                 <div className='row-btn' onClick={handleToggleActive}>

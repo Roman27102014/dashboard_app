@@ -18,7 +18,7 @@ export const UserInput = ({ placeholder }) => {
                     placeholder={placeholder}
                 />
                 <HSpace size='l' />
-                <div className='filter-submit'>
+                <div className='filter-click filter-submit'>
                     <span>Confirm</span>
                 </div>
             </div>

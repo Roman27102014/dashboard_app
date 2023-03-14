@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import tableReducer from './tableSlice';
 import usersReducer from './usersSlice';
+import gamesReducer from './gamesSlice';
 
-export const store = configureStore({
+export const rootStore = configureStore({
     reducer: {
         tables: tableReducer,
         users: usersReducer,
+        games: gamesReducer,
     },
 })

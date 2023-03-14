@@ -1,28 +1,27 @@
-import {UsersRow} from "./UsersRow";
-import '../../styles.css';
-import {VSpace} from "../Vspace";
+import {useSelector} from "react-redux";
+import {useCreatable} from "../../hooks";
 import {Filters} from "../Filters/Filters";
 import React from "react";
-import {useSelector} from "react-redux";
-import {NewUserRow} from "./NewUserRow";
+import {GameFilters} from "../Filters/GameFilters";
+import {VSpace} from "../Vspace";
+import {NewGameRow} from "./NewGameRow";
+import {GamesRow} from "./GamesRow";
 import {CreateButton} from "../CreateButton/CreateButton";
-import {useCreatable} from "../../hooks";
-import {UserFilters} from "../Filters/UserFilters";
 
 const names = [
     { id: 1, string: 'Name' },
-    { id: 2, string: 'Email' },
-    { id: 3, string: 'Address' },
+    { id: 2, string: 'Game category' },
+    { id: 3, string: 'Created date' },
 ];
 
-export const Users = () => {
-    const users = useSelector((state) => state.users ?? []);
+export const Games = () => {
+    const games = useSelector((state) => state.games ?? []);
     const { isCreatable, handleToggle } = useCreatable();
 
     return (
         <>
             <Filters>
-                <UserFilters />
+                <GameFilters />
             </Filters>
             <VSpace size='m' />
             <CreateButton onClick={handleToggle} />
@@ -37,13 +36,13 @@ export const Users = () => {
             <VSpace size='m' />
             {isCreatable &&
                 <>
-                    <NewUserRow onClick={handleToggle} />
+                    <NewGameRow onClick={handleToggle} />
                     <VSpace size='m' />
                 </>
             }
-            {users.length > 0 && users.map((user) => (
-                <React.Fragment key={user.id}>
-                    <UsersRow user={user} />
+            {games.length > 0 && games.map((game) => (
+                <React.Fragment key={game.id}>
+                    <GamesRow game={game} />
                     <VSpace size='m' />
                 </React.Fragment>
             ))}

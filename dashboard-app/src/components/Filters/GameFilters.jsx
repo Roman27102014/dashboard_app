@@ -3,7 +3,7 @@ import {HSpace} from "../HSpase";
 import {useState} from "react";
 import {UserInput} from "./UserInput";
 
-export const UserFilters = () => {
+export const GameFilters = () => {
     const [filterName, setFilterName] = useState('Name');
 
     const handleClick = (value) => {
@@ -15,16 +15,16 @@ export const UserFilters = () => {
             <div className='user-filters'>
                 <Filter text='Name' isActive={filterName === 'Name'} setActive={() => handleClick('Name')} />
                 <HSpace size={'l'} />
-                <Filter text='Email' isActive={filterName === 'Email'} setActive={() => handleClick('Email')} />
+                <Filter text='Category' isActive={filterName === 'Category'} setActive={() => handleClick('Category')} />
                 <HSpace size={'l'} />
-                <Filter text='Address' isActive={filterName === 'Address'} setActive={() => handleClick('Address')} />
+                <Filter text='Date' isActive={filterName === 'Date'} setActive={() => handleClick('Date')} />
             </div>
             {filterName === 'Name' &&
                 <UserInput placeholder='Name'/>}
-            {filterName === 'Email' &&
-                <UserInput placeholder='example@mail.ex'/>}
-            {filterName === 'Address' &&
-                <UserInput placeholder='Address'/>}
+            {filterName === 'Category' &&
+                <UserInput placeholder='Category'/>}
+            {filterName === 'Date' &&
+                <UserInput placeholder='yyyy-mm-dd'/>}
         </div>
     )
 }
