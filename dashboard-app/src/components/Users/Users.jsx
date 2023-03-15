@@ -17,7 +17,11 @@ const names = [
 
 export const Users = () => {
     const users = useSelector((state) => state.users ?? []);
+    const filteredUsers = useSelector((state) => state.filteredUsers);
+    const isFiltered = useSelector((state) => state.isFiltered);
     const { isCreatable, handleToggle } = useCreatable();
+
+    const renderUsers = isFiltered ? filteredUsers : users;
 
     return (
         <>
@@ -41,7 +45,7 @@ export const Users = () => {
                     <VSpace size='m' />
                 </>
             }
-            {users.length > 0 && users.map((user) => (
+            {renderUsers.map((user) => (
                 <React.Fragment key={user.id}>
                     <UsersRow user={user} />
                     <VSpace size='m' />

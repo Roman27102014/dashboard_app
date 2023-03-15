@@ -2,13 +2,11 @@ import {Filter} from "./Filter";
 import {HSpace} from "../HSpase";
 import {useState} from "react";
 import {UserInput} from "./UserInput";
+import {useChangeFilter} from "../../hooks";
 
 export const UserFilters = () => {
     const [filterName, setFilterName] = useState('Name');
-
-    const handleClick = (value) => {
-        setFilterName(value);
-    }
+    const { handleClick } = useChangeFilter(setFilterName);
 
     return (
         <div className='user-filters-container'>
@@ -22,7 +20,7 @@ export const UserFilters = () => {
             {filterName === 'Name' &&
                 <UserInput placeholder='Name'/>}
             {filterName === 'Email' &&
-                <UserInput placeholder='example@mail.ex'/>}
+                <UserInput placeholder='Email'/>}
             {filterName === 'Address' &&
                 <UserInput placeholder='Address'/>}
         </div>

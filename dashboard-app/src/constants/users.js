@@ -2,13 +2,13 @@ export const users = [
     {
         id: '1',
         name: 'Roman',
-        email: 'roman-biron@yandex.ru',
+        email: 'roman@yandex.ru',
         address: 'Vilnius',
     },
     {
         id: '2',
         name: 'Ksenia',
-        email: 'ksu@yandex.ru',
+        email: 'lady.rizhenkova@yandex.ru',
         address: 'Vilnius',
     },
     {

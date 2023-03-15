@@ -1,13 +1,12 @@
 import {useState} from "react";
 import {HSpace} from "../HSpase";
 import {useDispatch, useSelector} from "react-redux";
-import {filterUsersByAddress, filterUsersByEmail, filterUsersByName} from "../../models/filterUserSlice";
 import {toggleFiltered} from "../../models/isFiltered";
-import {resetUsersFilters} from "../../models/filterUserSlice";
+import {filterGamesByName, filterGamesByCategory, filterGamesByDate, resetGamesFilters} from "../../models/filterGameSlice";
 
-export const UserInput = ({ placeholder }) => {
+export const GameInput = ({ placeholder }) => {
     const dispatch = useDispatch();
-    const users = useSelector((state) => state.users ?? []);
+    const games = useSelector((state) => state.games ?? []);
     const [value, setValue] = useState('');
 
     const handleChange = (event) => {
@@ -15,15 +14,15 @@ export const UserInput = ({ placeholder }) => {
     }
 
     const handleConfirm = () => {
-        dispatch(resetUsersFilters(users));
+        dispatch(resetGamesFilters(games));
         if (placeholder === 'Name') {
-            dispatch(filterUsersByName(value));
+            dispatch(filterGamesByName(value));
         }
-        if (placeholder === 'Email') {
-            dispatch(filterUsersByEmail(value));
+        if (placeholder === 'Category') {
+            dispatch(filterGamesByCategory(value));
         }
-        if (placeholder === 'Address') {
-            dispatch(filterUsersByAddress(value));
+        if (placeholder === 'Date') {
+            dispatch(filterGamesByDate(value));
         }
         dispatch(toggleFiltered(true));
     }

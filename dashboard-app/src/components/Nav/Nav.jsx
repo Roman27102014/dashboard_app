@@ -3,6 +3,7 @@ import './styles.css';
 import {HSpace} from "../HSpase";
 import {useDispatch, useSelector} from "react-redux";
 import {changeTable} from "../../models/tableSlice";
+import {toggleFiltered} from "../../models/isFiltered";
 
 export const Nav = () => {
     const table = useSelector((state) => state.tables.name);
@@ -10,6 +11,7 @@ export const Nav = () => {
 
     const handleClick = (value) => {
         dispatch(changeTable(value));
+        dispatch(toggleFiltered(false));
     };
 
     return (

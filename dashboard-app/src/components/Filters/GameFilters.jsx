@@ -1,14 +1,12 @@
 import {Filter} from "./Filter";
 import {HSpace} from "../HSpase";
 import {useState} from "react";
-import {UserInput} from "./UserInput";
+import {useChangeFilter} from "../../hooks";
+import {GameInput} from "./GameInput";
 
 export const GameFilters = () => {
     const [filterName, setFilterName] = useState('Name');
-
-    const handleClick = (value) => {
-        setFilterName(value);
-    }
+    const { handleClick } = useChangeFilter(setFilterName);
 
     return (
         <div className='user-filters-container'>
@@ -20,11 +18,11 @@ export const GameFilters = () => {
                 <Filter text='Date' isActive={filterName === 'Date'} setActive={() => handleClick('Date')} />
             </div>
             {filterName === 'Name' &&
-                <UserInput placeholder='Name'/>}
+                <GameInput placeholder='Name'/>}
             {filterName === 'Category' &&
-                <UserInput placeholder='Category'/>}
+                <GameInput placeholder='Category'/>}
             {filterName === 'Date' &&
-                <UserInput placeholder='yyyy-mm-dd'/>}
+                <GameInput placeholder='Date'/>}
         </div>
     )
 }

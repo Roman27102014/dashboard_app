@@ -16,7 +16,11 @@ const names = [
 
 export const Games = () => {
     const games = useSelector((state) => state.games ?? []);
+    const filteredGames = useSelector((state) => state.filteredGames ?? []);
+    const isFiltered = useSelector((state) => state.isFiltered);
     const { isCreatable, handleToggle } = useCreatable();
+
+    const renderGames = isFiltered ? filteredGames : games;
 
     return (
         <>
@@ -40,7 +44,7 @@ export const Games = () => {
                     <VSpace size='m' />
                 </>
             }
-            {games.length > 0 && games.map((game) => (
+            {renderGames.map((game) => (
                 <React.Fragment key={game.id}>
                     <GamesRow game={game} />
                     <VSpace size='m' />
