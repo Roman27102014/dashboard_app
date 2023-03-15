@@ -13,3 +13,17 @@
 .xl {
     height: 3rem;
 }
+
+@media (max-width: 910px) {
+    .m {
+        height: 0.5rem;
+    }
+
+    .l {
+        height: 0.8rem;
+    }
+
+    .xl {
+        height: 1rem;
+    }
+}

@@ -24,11 +24,32 @@
 }
 
 .table-row__buttons {
-    display: flex;align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .row-btn img {
     cursor: pointer;
     width: 1rem;
     height: 1rem;
+}
+
+@media (max-width: 910px) {
+    .table-head {
+        display: none;
+    }
+
+    .table-row__cells {
+        flex-direction: column;
+        min-width: 94%;
+    }
+
+    .table-row {
+        padding: 0 1rem;
+        height: 6rem;
+    }
+
+    .table-row__buttons {
+        flex-direction: column;
+    }
 }

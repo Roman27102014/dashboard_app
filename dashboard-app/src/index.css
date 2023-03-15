@@ -44,7 +44,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: "Inter regular", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   background-color: #F5F5F5;
 }
 
@@ -87,5 +87,16 @@ input {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 910px) {
+  body {
+    font-size: 12px;
+  }
+
+  input {
+    font-size: 0.7rem;
+    width: 100%;
   }
 }
